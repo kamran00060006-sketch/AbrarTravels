@@ -1,0 +1,261 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #f9f9f9;
+}
+
+/* Header */
+header {
+  background: #004080;
+  color: #fff;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+header .logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #f4b400;
+}
+header nav ul {
+  list-style: none;
+  display: flex;
+}
+header nav ul li {
+  margin-left: 20px;
+}
+header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+header nav ul li a:hover {
+  color: #f4b400;
+}
+
+/* FIX #3: nav-toggle button styles (was missing entirely) */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  order: -1; /* Place toggle before logo on mobile */
+}
+
+/* Hero Section */
+/* FIX #4: Added solid fallback color since travel-hero.jpg doesn't exist */
+.hero {
+  background: url('travel-hero.jpg') center/cover no-repeat, linear-gradient(135deg, #004080 0%, #0066cc 100%);
+  color: #fff;
+  text-align: center;
+  padding: 120px 20px;
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+.hero .btn {
+  background: #f4b400;
+  color: #004080;
+  padding: 12px 25px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+.hero .btn:hover {
+  background: #d99a00;
+}
+
+/* Sections */
+section {
+  padding: 60px 40px;
+  background: #fff;
+  margin-bottom: 20px;
+}
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #004080;
+}
+section p, section ul, section ol {
+  max-width: 800px;
+  margin-bottom: 20px;
+}
+
+/* Services */
+ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+ul li {
+  margin-bottom: 10px;
+}
+ol {
+  padding-left: 20px;
+}
+ol li {
+  margin-bottom: 10px;
+}
+
+/* Destinations Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: center;
+}
+table th {
+  background: #004080;
+  color: #fff;
+}
+table tr:nth-child(even) {
+  background: #f4f4f4;
+}
+
+/* Team Grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.member {
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+.member:hover {
+  transform: translateY(-5px);
+}
+.member h3 {
+  margin-bottom: 10px;
+  color: #004080;
+}
+
+/* Testimonials */
+blockquote {
+  background: #f9f9f9;
+  border-left: 5px solid #f4b400;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+/* Contact Form */
+form {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+form input, form textarea {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+form button {
+  background: #004080;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+form button:hover {
+  background: #003366;
+}
+
+/* FIX #5: Form status message styles */
+.form-status {
+  margin-top: 10px;
+  font-weight: bold;
+}
+.form-status.success {
+  color: #2e7d32;
+}
+.form-status.error {
+  color: #c62828;
+}
+
+/* Footer */
+footer {
+  background: #004080;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  /* FIX #6: Show toggle button and hide nav by default on mobile */
+  .nav-toggle {
+    display: block;
+  }
+  header nav {
+    width: 100%;
+  }
+  header nav ul {
+    display: none;
+    flex-direction: column;
+    margin-top: 10px;
+    width: 100%;
+  }
+  header nav ul.show {
+    display: flex;
+  }
+  header nav ul li {
+    margin: 8px 0;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+  section {
+    padding: 40px 20px;
+  }
+  table {
+    font-size: 0.9rem;
+  }
+  table th, table td {
+    padding: 8px 6px;
+  }
+}
